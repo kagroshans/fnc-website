@@ -29,6 +29,14 @@
     });
   }
 
+  /* ── Navbar scroll shadow ── */
+  const navbar = document.querySelector('.navbar');
+  if (navbar) {
+    window.addEventListener('scroll', function () {
+      navbar.classList.toggle('is-scrolled', window.scrollY > 10);
+    }, { passive: true });
+  }
+
   /* ── Card Accordion ── */
   const cards = document.querySelectorAll('[data-card]');
 

@@ -17,7 +17,7 @@
 
   --max-width: 1100px;
   --section-pad: 4rem 1.25rem;
-  --nav-height: 68px;
+  --nav-height: 88px;
 
   --transition-fast: 180ms ease;
   --transition-med:  300ms ease;
@@ -132,6 +132,11 @@ ul {
   z-index: 100;
   background: var(--color-navy);
   border-bottom: 1px solid rgba(255, 195, 84, 0.2);
+  transition: box-shadow var(--transition-med);
+}
+
+.navbar.is-scrolled {
+  box-shadow: 0 2px 16px rgba(0, 31, 62, 0.45);
 }
 
 .navbar__inner {
@@ -149,8 +154,9 @@ ul {
 }
 
 .navbar__logo {
-  height: 38px;
+  height: 75px;
   width: auto;
+  display: block;
 }
 
 /* Hamburger */
@@ -243,7 +249,7 @@ ul {
 .hero {
   background: var(--color-navy);
   color: var(--color-white);
-  padding: 5rem 1.25rem 6rem;
+  padding: 7.5rem 1.25rem; /* 120px top & bottom */
 }
 
 .hero__inner {
@@ -289,7 +295,8 @@ ul {
 }
 
 .what-we-do__content {
-  max-width: 760px;
+  max-width: 700px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -473,7 +480,7 @@ ul {
 }
 
 .footer__logo {
-  height: 36px;
+  height: 60px;
   width: auto;
 }
 
