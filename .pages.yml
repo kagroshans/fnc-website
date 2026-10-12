@@ -167,6 +167,43 @@ content:
         label: "Coming Soon Subtext (prefix before the email link)"
         type: string
 
+  - name: pages
+    label: "Pages"
+    type: collection
+    path: src/pages
+    format: yaml-frontmatter
+    exclude: ["pages.json"]
+    view:
+      primary: title
+    fields:
+      - name: title
+        label: "Title"
+        type: string
+      - name: slug
+        label: "Slug (URL path — leave blank to use the filename)"
+        type: string
+      - name: description
+        label: "Meta Description (SEO)"
+        type: text
+      - name: heroImage
+        label: "Hero / Featured Image (optional)"
+        type: image
+      - name: heroImageAlt
+        label: "Hero Image Alt Text"
+        type: string
+      - name: nav
+        label: "Show in Site Navigation?"
+        type: boolean
+      - name: navLabel
+        label: "Navigation Label (optional — defaults to Title)"
+        type: string
+      - name: navOrder
+        label: "Navigation Order (lower numbers appear first)"
+        type: number
+      - name: body
+        label: "Page Content"
+        type: rich-text
+
   - name: posts
     label: "Blog Posts"
     type: collection

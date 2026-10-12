@@ -1,0 +1,7 @@
+{
+  "layout": "layouts/page.njk",
+  "eleventyComputed": {
+    "permalink": "/{{ slug or page.fileSlug }}/",
+    "pageImage": "{{ heroImage }}"
+  }
+}

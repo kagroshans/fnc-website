@@ -735,3 +735,18 @@ ul {
 .blog-post__nav a:hover {
   color: var(--color-gold);
 }
+
+/* ── GENERIC PAGES ── */
+.page__hero-image {
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.page__content {
+  max-width: 700px;
+  line-height: 1.8;
+}
+
+.page__content p {
+  margin-bottom: 1.25rem;
+}

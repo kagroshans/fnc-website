@@ -1,0 +1,17 @@
+---
+layout: layouts/base.njk
+---
+    <article class="section-inner page">
+      <h1 class="section-heading">
+        {{ title }}
+        <span class="section-heading__underline"></span>
+      </h1>
+
+      {% if heroImage %}
+      <img src="{{ heroImage }}" alt="{{ heroImageAlt or title }}" class="page__hero-image" />
+      {% endif %}
+
+      <div class="page__content">
+        {{ content | safe }}
+      </div>
+    </article>

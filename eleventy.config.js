@@ -28,6 +28,23 @@ module.exports = function (eleventyConfig) {
       });
   });
 
+  eleventyConfig.addCollection("navPages", function (collectionApi) {
+    return collectionApi
+      .getFilteredByGlob("src/pages/*.md")
+      .filter(function (page) {
+        return page.data.nav === true;
+      })
+      .sort(function (a, b) {
+        return (a.data.navOrder ?? 999) - (b.data.navOrder ?? 999);
+      });
+  });
+
+  eleventyConfig.addCollection("sitemapPages", function (collectionApi) {
+    return collectionApi.getAll().filter(function (item) {
+      return item.outputPath && item.outputPath.endsWith(".html");
+    });
+  });
+
   return {
     dir: {
       input: "src",

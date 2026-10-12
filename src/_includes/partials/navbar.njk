@@ -15,6 +15,9 @@
         {% for link in site.nav %}
         <a href="{{ link.href }}" class="navbar__link">{{ link.label }}</a>
         {% endfor %}
+        {% for navPage in collections.navPages %}
+        <a href="{{ navPage.url }}" class="navbar__link">{{ navPage.data.navLabel or navPage.data.title }}</a>
+        {% endfor %}
       </nav>
     </div>
   </header>
