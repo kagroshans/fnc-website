@@ -2,3 +2,5 @@
 Thumbs.db
 fnc_logo_navy_gold.png
 initial-build-prompt.md
+node_modules/
+_site/

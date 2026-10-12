@@ -1,0 +1,22 @@
+{
+  "name": "fnc-website",
+  "version": "1.0.0",
+  "description": "Marketing site for freedomnotecapital.com",
+  "private": true,
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kagroshans/fnc-website.git"
+  },
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/kagroshans/fnc-website/issues"
+  },
+  "homepage": "https://github.com/kagroshans/fnc-website#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}
