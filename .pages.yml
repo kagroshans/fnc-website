@@ -1,0 +1,207 @@
+media:
+  input: src/assets/images/uploads
+  output: /assets/images/uploads
+
+content:
+  - name: site
+    label: "Site Settings"
+    type: file
+    path: src/_data/site.json
+    format: json
+    fields:
+      - name: title
+        label: "Browser Tab Title"
+        type: string
+      - name: description
+        label: "Meta Description (SEO)"
+        type: text
+      - name: entityName
+        label: "Legal Entity Name"
+        type: string
+      - name: email
+        label: "Contact Email"
+        type: string
+      - name: copyrightYear
+        label: "Copyright Year"
+        type: string
+      - name: disclaimer
+        label: "Footer Disclaimer"
+        type: text
+      - name: nav
+        label: "Navbar Links"
+        type: object
+        list:
+          min: 1
+          collapsible:
+            collapsed: true
+            summary: "{label}"
+        fields:
+          - name: label
+            label: "Link Text"
+            type: string
+          - name: href
+            label: "Link Target"
+            type: string
+
+  - name: hero
+    label: "Homepage: Hero"
+    type: file
+    path: src/_data/hero.json
+    format: json
+    fields:
+      - name: headline
+        label: "Headline"
+        type: string
+      - name: subheadline
+        label: "Subheadline"
+        type: text
+      - name: primaryCta
+        label: "Primary Button"
+        type: object
+        fields:
+          - { name: label, label: "Button Text", type: string }
+          - { name: href, label: "Button Link", type: string }
+      - name: secondaryCta
+        label: "Secondary Button"
+        type: object
+        fields:
+          - { name: label, label: "Button Text", type: string }
+          - { name: href, label: "Button Link", type: string }
+
+  - name: what-we-do
+    label: "Homepage: What We Do"
+    type: file
+    path: src/_data/whatWeDo.json
+    format: json
+    fields:
+      - name: heading
+        label: "Section Heading"
+        type: string
+      - name: paragraphs
+        label: "Paragraphs"
+        type: text
+        list:
+          min: 1
+
+  - name: about
+    label: "Homepage: About"
+    type: file
+    path: src/_data/about.json
+    format: json
+    fields:
+      - name: photo
+        label: "Photo"
+        type: image
+      - name: photoAlt
+        label: "Photo Alt Text"
+        type: string
+      - name: photoInitial
+        label: "Placeholder Initial (shown if photo fails to load)"
+        type: string
+      - name: name
+        label: "Name"
+        type: string
+      - name: title
+        label: "Title"
+        type: string
+      - name: paragraphs
+        label: "Bio Paragraphs"
+        type: text
+        list:
+          min: 1
+      - name: cta
+        label: "Call to Action"
+        type: object
+        fields:
+          - { name: label, label: "Button Text", type: string }
+          - { name: href, label: "Button Link (e.g. mailto:...)", type: string }
+
+  - name: cards
+    label: "Get Involved: Cards"
+    type: file
+    path: src/_data/cards.json
+    format: json
+    list:
+      min: 1
+      collapsible:
+        collapsed: true
+        summary: "{title}"
+    fields:
+      - name: icon
+        label: "Icon (emoji — leave blank to use the default icon)"
+        type: string
+      - name: title
+        label: "Card Title"
+        type: string
+      - name: short
+        label: "Short Description (collapsed state)"
+        type: text
+      - name: body
+        label: "Expanded Paragraphs"
+        type: text
+        list:
+          min: 1
+      - name: cta
+        label: "Call to Action"
+        type: object
+        fields:
+          - { name: label, label: "Button Text", type: string }
+          - { name: subject, label: "Email Subject Line", type: string }
+
+  - name: newsletter
+    label: "Homepage: Newsletter"
+    type: file
+    path: src/_data/newsletter.json
+    format: json
+    fields:
+      - name: heading
+        label: "Heading"
+        type: string
+      - name: subtext
+        label: "Subtext"
+        type: text
+      - name: comingSoonText
+        label: "Coming Soon Text"
+        type: string
+      - name: comingSoonSubtext
+        label: "Coming Soon Subtext (prefix before the email link)"
+        type: string
+
+  - name: posts
+    label: "Blog Posts"
+    type: collection
+    path: src/blog/posts
+    format: yaml-frontmatter
+    exclude: ["posts.json"]
+    view:
+      sort: ["date"]
+      primary: title
+    fields:
+      - name: title
+        label: "Title"
+        type: string
+      - name: date
+        label: "Publish Date"
+        type: date
+      - name: description
+        label: "Description (SEO + blog index preview)"
+        type: text
+      - name: author
+        label: "Author"
+        type: string
+      - name: featuredImage
+        label: "Featured Image"
+        type: image
+      - name: featuredImageAlt
+        label: "Featured Image Alt Text"
+        type: string
+      - name: tags
+        label: "Tags"
+        type: string
+        list: true
+      - name: draft
+        label: "Draft (hide from the published blog index)"
+        type: boolean
+      - name: body
+        label: "Post Content"
+        type: rich-text
