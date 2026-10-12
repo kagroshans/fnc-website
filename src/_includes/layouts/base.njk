@@ -6,6 +6,19 @@
   <title>{{ title or site.title }}</title>
   <meta name="description" content="{{ description or site.description }}" />
 
+  <!-- Canonical -->
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ title or site.title }}" />
+  <meta property="og:description" content="{{ description or site.description }}" />
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+  <meta property="og:type" content="{{ ogType or 'website' }}" />
+  <meta property="og:site_name" content="{{ site.entityName }}" />
+  {% if pageImage %}
+  <meta property="og:image" content="{{ site.url }}{{ pageImage }}" />
+  {% endif %}
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/assets/logo-square.png" />
 
@@ -16,6 +29,17 @@
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="/css/styles.css" />
+
+  <!-- Organization structured data -->
+  {% set organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": site.entityName,
+    "url": site.url,
+    "email": site.email,
+    "logo": site.url + "/assets/logo-rectangle.png"
+  } %}
+  <script type="application/ld+json">{{ organizationSchema | dump | safe }}</script>
 </head>
 <body>
 

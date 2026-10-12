@@ -1,5 +1,8 @@
 ---
 layout: layouts/base.njk
+ogType: article
+eleventyComputed:
+  pageImage: "{{ featuredImage }}"
 ---
     <article class="section-inner blog-post">
       <h1 class="section-heading">{{ title }}</h1>
@@ -30,4 +33,22 @@ layout: layouts/base.njk
         {% if nextPost %}<a href="{{ nextPost.url }}" class="blog-post__next">{{ nextPost.data.title }} &rarr;</a>{% endif %}
       </nav>
       {% endif %}
+
+      {% set postImage = (site.url + featuredImage) if featuredImage else (site.url + "/assets/logo-rectangle.png") %}
+      {% set postSchema = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": title,
+        "description": description,
+        "datePublished": date | htmlDateString,
+        "image": postImage,
+        "mainEntityOfPage": site.url + page.url,
+        "author": { "@type": "Person", "name": author },
+        "publisher": {
+          "@type": "Organization",
+          "name": site.entityName,
+          "logo": { "@type": "ImageObject", "url": site.url + "/assets/logo-rectangle.png" }
+        }
+      } %}
+      <script type="application/ld+json">{{ postSchema | dump | safe }}</script>
     </article>
