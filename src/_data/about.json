@@ -1,0 +1,13 @@
+{
+  "photo": "assets/headshot.jpg",
+  "photoAlt": "Dr. Keith G., Founder of Freedom Note Capital",
+  "photoInitial": "K",
+  "name": "Dr. Keith G.",
+  "title": "Founder, Freedom Note Capital LLC",
+  "paragraphs": [
+    "Freedom Note Capital was built on a simple conviction: mortgage notes are one of the most overlooked asset classes available to individual investors. Backed by real property and real payment history, they offer the kind of steady, predictable cash flow that most portfolios are missing.",
+    "Dr. Keith G. founded FNC to acquire performing notes, build a durable cash flow portfolio, and create a clean, honest marketplace where note holders can sell and investors can participate. The business runs on transparency — straightforward deals, documented terms, and no unnecessary complexity.",
+    "Whether you hold a note, want to buy one, or are looking for a secured private lending arrangement, we'd welcome the conversation."
+  ],
+  "cta": { "label": "Get in Touch", "href": "mailto:keith@freedomnotecapital.com" }
+}

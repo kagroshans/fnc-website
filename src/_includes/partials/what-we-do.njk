@@ -1,0 +1,14 @@
+    <!-- ===== WHAT WE DO ===== -->
+    <section class="what-we-do" id="what-we-do">
+      <div class="section-inner">
+        <h2 class="section-heading">
+          {{ whatWeDo.heading }}
+          <span class="section-heading__underline"></span>
+        </h2>
+        <div class="what-we-do__content">
+          {% for paragraph in whatWeDo.paragraphs %}
+          <p>{{ paragraph }}</p>
+          {% endfor %}
+        </div>
+      </div>
+    </section>

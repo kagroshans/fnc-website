@@ -1,0 +1,19 @@
+    <!-- ===== NEWSLETTER ===== -->
+    <section class="newsletter" id="newsletter">
+      <div class="section-inner newsletter__inner">
+        <h2 class="newsletter__heading">{{ newsletter.heading }}</h2>
+        <p class="newsletter__subtext">{{ newsletter.subtext }}</p>
+
+        <!-- ============================================
+             GHL NEWSLETTER FORM EMBED
+             Replace this comment block with your
+             GoHighLevel form embed code.
+             In GHL: Sites → Forms → [your form] → Share/Embed
+             ============================================ -->
+        <div class="ghl-form-placeholder">
+          <p class="newsletter__coming-soon">{{ newsletter.comingSoonText }}</p>
+          <p class="newsletter__coming-soon-sub">{{ newsletter.comingSoonSubtext }} <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
+        </div>
+
+      </div>
+    </section>

@@ -1,0 +1,20 @@
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar">
+    <div class="navbar__inner">
+      <a href="/" class="navbar__logo-link">
+        <img src="/assets/logo-rectangle.png" alt="Freedom Note Capital" class="navbar__logo" />
+      </a>
+
+      <button class="navbar__hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="navbar__nav" id="nav-menu" role="navigation">
+        {% for link in site.nav %}
+        <a href="{{ link.href }}" class="navbar__link">{{ link.label }}</a>
+        {% endfor %}
+      </nav>
+    </div>
+  </header>

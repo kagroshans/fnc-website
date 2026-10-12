@@ -1,0 +1,28 @@
+---
+layout: layouts/base.njk
+title: Blog — Freedom Note Capital
+description: Deal analysis, market observations, and portfolio updates from Freedom Note Capital.
+---
+    <section class="section-inner">
+      <h1 class="section-heading">
+        Blog
+        <span class="section-heading__underline"></span>
+      </h1>
+
+      {% set posts = collections.posts | reverse %}
+      {% if posts.length %}
+      <ul class="blog-index">
+        {% for post in posts %}
+        <li class="blog-index__item">
+          <a href="{{ post.url }}" class="blog-index__title">{{ post.data.title }}</a>
+          <time class="blog-index__date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+          {% if post.data.description %}
+          <p class="blog-index__description">{{ post.data.description }}</p>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p>No posts yet — check back soon.</p>
+      {% endif %}
+    </section>

@@ -1,0 +1,15 @@
+    <!-- ===== GET INVOLVED ===== -->
+    <section class="get-involved" id="get-involved">
+      <div class="section-inner">
+        <h2 class="section-heading">
+          Get Involved
+          <span class="section-heading__underline"></span>
+        </h2>
+
+        <div class="cards-grid">
+          {% for card in cards %}
+          {% include "partials/card.njk" %}
+          {% endfor %}
+        </div><!-- .cards-grid -->
+      </div><!-- .section-inner -->
+    </section>
