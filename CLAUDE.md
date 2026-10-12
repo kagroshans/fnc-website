@@ -1,28 +1,32 @@
 # Freedom Note Capital — Website Project
 
 ## Project Overview
-Single-page marketing website for Freedom Note Capital (FNC), a mortgage note investing company. This is a static HTML/CSS/JS site hosted on GitHub Pages. The goal is a clean, professional front door for the business — not a blog, not a pitch deck. Simple now, expandable later.
+Marketing website for Freedom Note Capital (FNC), a mortgage note investing company, plus a lightweight blog. Built with Eleventy (11ty) and deployed as a static HTML/CSS/JS site to GitHub Pages. The goal is a clean, professional front door for the business — not a pitch deck. Content is edited through Pages CMS (https://pagescms.org) or by editing the data/markdown files directly; see README.md for the full editing workflow.
 
 ## Tech Stack
-- Plain HTML, CSS, vanilla JS only
-- No frameworks, no build tools, no npm
-- Single `index.html` to start; multi-page expansion by adding new HTML files later
-- Shared `css/styles.css` across all future pages
-- Hosted on GitHub Pages (public repo)
+- Eleventy (11ty) static site generator — Nunjucks templates, no other templating dependency
+- Plain CSS, vanilla JS only — no preprocessor, no JS framework, no bundler
+- Content lives in `src/_data/*.json` (site-wide/marketing copy) and `src/blog/posts/*.md` (blog), separate from templates, so Pages CMS can edit it
+- Hosted on GitHub Pages (public repo), built and deployed via GitHub Actions (`.github/workflows/deploy.yml`)
 
 ## File Structure
+See README.md for the full tree. Summary:
 ```
 fnc-website/
-├── index.html
-├── css/
-│   └── styles.css
-├── js/
-│   └── main.js
-└── assets/
-    ├── logo-rectangle.png     (horizontal logo, transparent background)
-    ├── logo-square.png        (square/icon logo, transparent background)
-    └── favicon.ico
+├── eleventy.config.js
+├── .pages.yml                 Pages CMS schema
+├── .github/workflows/deploy.yml
+└── src/
+    ├── index.njk               Homepage
+    ├── CNAME
+    ├── css/styles.css          Unchanged since the original build
+    ├── js/main.js              Unchanged since the original build
+    ├── assets/                 logo-rectangle.png + images/uploads/ (CMS media)
+    ├── _data/                  JSON content files (one per homepage section)
+    ├── _includes/              layouts/ + partials/ (structure, not content)
+    └── blog/                   index.njk + posts/*.md
 ```
+`logo-square.png` (favicon) and `assets/headshot.jpg` (about photo) are referenced but not yet added — this is a pre-existing gap from the original build, not a regression.
 
 ## Brand Identity
 
@@ -54,7 +58,9 @@ fnc-website/
 - No stock photography needed — typography and color carry the design
 - Mobile-first responsive layout
 
-## Site Structure — index.html
+## Site Structure — src/index.njk
+
+The content described below now lives in `src/_data/*.json`, not inline in a template — this section documents what's rendered and why, not where to edit it. To change copy, edit the matching data file (or use Pages CMS); to change markup/structure, edit `src/_includes/partials/`.
 
 ### 1. Navbar (sticky)
 - Logo left, anchor nav links right
@@ -154,13 +160,13 @@ fnc-website/
 - Valid, semantic HTML5 (header, nav, main, section, footer)
 
 ## Deployment
-- Host on GitHub Pages (public repo)
-- Custom domain via GitHub Pages settings + DNS update
-- No build step — push HTML/CSS/JS directly to `main` branch
+- Host on GitHub Pages (public repo), custom domain `freedomnotecapital.com` via `src/CNAME` + Namecheap DNS
+- Build + deploy via GitHub Actions on push to `main` (see `.github/workflows/deploy.yml`) — not a branch-source deploy
+- `npm run build` locally produces the same output in `_site/`
 
 ## Future Expansion Notes
 When adding new pages:
-- Create new `.html` files in root (e.g., `about.html`, `portfolio.html`)
-- Link shared `css/styles.css` from each page
-- Update navbar links accordingly
-- Keep consistent header/footer by duplicating the HTML blocks (or refactor to JS includes later)
+- Add a new `.njk` (or `.md`) file under `src/` — Eleventy maps file paths to URLs automatically
+- Reuse `layouts/base.njk` for the shared head/navbar/footer; add new partials under `_includes/partials/` for page-specific sections
+- Put routinely-edited copy in a new `src/_data/*.json` file and add a matching entry to `.pages.yml` so it's CMS-editable
+- Update `site.json`'s `nav` array to add navbar links
