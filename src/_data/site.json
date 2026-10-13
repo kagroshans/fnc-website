@@ -1,10 +1,10 @@
 {
-  "title": "Freedom Note Capital — Mortgage Note Investing",
-  "description": "Freedom Note Capital acquires performing residential mortgage notes and helps others buy, sell, and invest in them.",
+  "title": "Freedom Note Capital — Mortgage Note Holdings",
+  "description": "Freedom Note Capital LLC is a private investment holding company that owns and manages residential mortgage notes secured by real estate.",
   "entityName": "Freedom Note Capital LLC",
   "email": "info@freedomnotecapital.com",
   "copyrightYear": "2026",
-  "disclaimer": "Freedom Note Capital LLC is not a registered investment advisor. Nothing on this site constitutes investment advice. All investments involve risk. Nothing on this site is an offer to sell or solicitation to buy securities.",
+  "disclaimer": "Freedom Note Capital LLC is a private investment holding company investing for its own account. We do not provide investment advisory, brokerage, financial planning, or legal services. Nothing on this website constitutes investment, legal, tax, or financial advice or an offer or solicitation to buy or sell any security or investment product.",
   "nav": [
     {
       "label": "What We Do",
@@ -13,14 +13,6 @@
     {
       "label": "About",
       "href": "/#about"
-    },
-    {
-      "label": "Get Involved",
-      "href": "/#get-involved"
-    },
-    {
-      "label": "Newsletter",
-      "href": "/#newsletter"
     }
   ]
 }
