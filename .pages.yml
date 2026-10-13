@@ -81,7 +81,7 @@ content:
         label: "Paragraphs"
         type: text
         list:
-          min: 1
+          min: 0
 
   - name: about
     label: "Homepage: About"
